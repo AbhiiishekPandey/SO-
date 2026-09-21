@@ -1,0 +1,6 @@
+{
+  "name": "SÓ BOUTIQUE",
+  "description": "Contemporary luxury fashion, editorial dresses, and minimalist haute ready-to-wear.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
