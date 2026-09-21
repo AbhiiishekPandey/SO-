@@ -15,17 +15,18 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
   onAddToCart,
   onOpenFullDetail
 }) => {
-  if (!product) return null;
-
   const [selectedSize, setSelectedSize] = useState('');
   const [added, setAdded] = useState(false);
 
   useEffect(() => {
+    if (!product) return;
     const firstAvail = product.sizes.find(s => s.available);
     if (firstAvail) setSelectedSize(firstAvail.size);
     else setSelectedSize(product.sizes[0]?.size || '');
     setAdded(false);
   }, [product]);
+
+  if (!product) return null;
 
   const handleAdd = () => {
     if (!selectedSize) return;

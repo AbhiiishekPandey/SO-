@@ -19,8 +19,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   isWishlisted,
   onOpenSizeGuide
 }) => {
-  if (!product) return null;
-
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [quantity, setQuantity] = useState(1);
@@ -29,6 +27,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 
   // Set default size to first available
   useEffect(() => {
+    if (!product) return;
     setSelectedImageIdx(0);
     setQuantity(1);
     const firstAvail = product.sizes.find(s => s.available);
@@ -38,6 +37,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       setSelectedSize(product.sizes[0]?.size || '');
     }
   }, [product]);
+
+  if (!product) return null;
 
   const handleAdd = () => {
     if (!selectedSize) return;

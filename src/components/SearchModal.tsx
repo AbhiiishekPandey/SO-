@@ -15,20 +15,20 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   products,
   onSelectProduct
 }) => {
-  if (!isOpen) return null;
-
   const [query, setQuery] = useState('');
 
   const searchResults = useMemo(() => {
     if (!query.trim()) return [];
     const q = query.toLowerCase();
-    return products.filter(p => 
+    return products.filter(p =>
       p.title.toLowerCase().includes(q) ||
       p.description.toLowerCase().includes(q) ||
       p.fabric.toLowerCase().includes(q) ||
       p.tags.some(t => t.toLowerCase().includes(q))
     );
   }, [products, query]);
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-[#151515]/70 backdrop-blur-md animate-in fade-in duration-200">

@@ -19,11 +19,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   onRemoveItem,
   onCheckout
 }) => {
-  if (!isOpen) return null;
-
   const [orderNote, setOrderNote] = useState('');
   const [showNoteInput, setShowNoteInput] = useState(false);
   const [checkoutComplete, setCheckoutComplete] = useState(false);
+
+  if (!isOpen) return null;
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
   const freeShippingThreshold = 150;

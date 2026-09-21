@@ -7,9 +7,9 @@ interface SizeGuideModalProps {
 }
 
 export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
-
   const [unit, setUnit] = useState<'cm' | 'in'>('cm');
+
+  if (!isOpen) return null;
 
   const rows = [
     { uk: '8 / XS', eu: '36', us: '4', bustCm: '82-85', waistCm: '64-67', hipCm: '90-93', bustIn: '32-33.5', waistIn: '25-26.5', hipIn: '35.5-36.5' },
